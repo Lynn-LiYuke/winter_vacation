@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.9'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.lyk'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//mybatis
+	implementation('com.baomidou:mybatis-plus-boot-starter:2.3.3')
+	//implementation('com.baomidou:mybatis-plus-boot-starter:3.4.0')
+	implementation 'junit:junit:4.13.1'
+
+	//implementation('com.baomidou:mybatis-plus-core:3.3.1')
+	//implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
+	//mybatis-plus 模板
+	//implementation('org.apache.velocity:velocity-engine-core:2.0')
+	//spring boot 中调用http
+	//implementation('org.apache.httpcomponents:httpclient:4.5.4')
+
+	//调用excel
+	//implementation('org.apache.poi:poi:3.13')
+	//implementation('org.apache.poi:poi-ooxml:3.13')
+	//自定义jar包，包含了oracle的数据库的连接
+	//implementation fileTree(dir:'libs',include:['*.jar'])
+	//implementation 'android.arch.persistence.room:runtime:1.1.1'
+	//annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+	runtimeOnly 'mysql:mysql-connector-java'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	//testCompile('org.junit.jupiter:junit-jupiter:5.4.2')
+	testImplementation('org.junit.jupiter:junit-jupiter:5.4.2')
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
