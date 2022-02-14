@@ -1,0 +1,39 @@
+server: 
+  port: 8101
+  servlet:
+    context-path: /st
+    session:
+      cookie:
+        name: WEIXINCDGZZSSt
+
+spring: 
+  profiles:
+    active: providedRuntime
+    include: mybatisplus
+  #jmx.enabled=false 可以在一个tomcat启动多个springboot项目
+  jmx:
+    enabled: false
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    #url: jdbc:mysql://134.166.65.7:3306/cddxsms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: user
+    password: user-wechat
+    #driverClassName: oracle.jdbc.OracleDriver
+    #url: jdbc:oracle:thin:@134.166.64.151:1521:cddxit
+    #username: cddxit
+    #password:
+    tomcat:
+      initial-size: 3
+      max-idle: 20
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 20
+    dbcp2:
+      min-idle: 3
+      initial-size: 3
+      max-idle: 20
+  servlet:
+    multipart:
+      max-file-size: 60MB
+      max-request-size: 60MB
